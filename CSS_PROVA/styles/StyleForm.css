@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+	padding: 0;
+	border: 0;
+}
+:root {
+    --blue: rgb(84, 84, 246);
+    --green: rgb(79, 238, 79);
+    --yellow: rgb(255, 255, 104);
+    --pink: rgb(252, 113, 210);
+    --dark-pink: rgb(168, 2, 118);
+    --background: rgb(75, 38, 110);
+    --bar: rgb(29, 1, 69);
+}
+html {
+    height: 100%;
+}
+body {
+    background-image: linear-gradient(to top, var(--background) 0%, #000000 100%);
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'PT Serif';
+}
+#vitrine {
+    position: absolute;
+    margin-top: 4rem;
+    margin-left: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    box-shadow: 0 0 3px white;
+    border-radius: 0.35rem;
+    background-color: var(--bar);
+}
+#vitrine:active {
+    box-shadow: 0 0 12px var(--blue) !important;
+}
+#vitrine:hover {
+    box-shadow: 0 0 8px var(--dark-pink);
+}
+#home {
+    position: absolute;
+    margin-top: 0.7rem;
+    margin-left: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    box-shadow: 0 0 3px white;
+    border-radius: 0.35rem;
+    background-color: var(--bar);
+}
+#home:active {
+    box-shadow: 0 0 12px var(--blue) !important;
+}
+#home:hover {
+    box-shadow: 0 0 8px var(--dark-pink);
+}
+.container {
+    margin-top: 8rem !important;
+}
+.card {
+    margin-top: 50px;
+    width: 150rem;
+}
+  
+.card-header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+  
+.field {
+    margin-bottom: 20px;
+}
+.modal-card-head .delete {
+    top: 0.5rem;
+    right: 0.5rem;
+}
+  
