@@ -7,9 +7,16 @@ const inputCheckbox = document.getElementById('input-termos');
 const msgCheckbox = document.getElementById('msg-checkbox');
 
 btnCadastro.addEventListener('click', (event) => {
-  event.preventDefault(); 
+  event.preventDefault();
 
   if (inputEmail.value === '') {
+    msgEmail.textContent = 'Campo obrigatório';
+    msgEmail.classList.remove('is-hidden');
+    inputEmail.classList.add('is-danger');
+    inputEmail.focus();
+    return;
+  } else if (!validateEmail(inputEmail.value)) {
+    msgEmail.textContent = 'E-mail inválido';
     msgEmail.classList.remove('is-hidden');
     inputEmail.classList.add('is-danger');
     inputEmail.focus();
@@ -20,19 +27,19 @@ btnCadastro.addEventListener('click', (event) => {
   }
 
   if (!inputCheckbox.checked) {
+    msgCheckbox.textContent = 'Você precisa aceitar os termos de uso';
     msgCheckbox.classList.remove('is-hidden');
     inputCheckbox.classList.add('is-danger');
-    inputCheckbox.focus();
     return;
   } else {
     msgCheckbox.classList.add('is-hidden');
     inputCheckbox.classList.remove('is-danger');
   }
 
-  let mensagem = 'Cadastro realizado com sucesso!';
+  let mensagem = `cadastrado com sucesso, seu e-mail cadastrado é: ${inputEmail.value}`;
 
   if (inputNome.value !== '') {
-    mensagem = `${inputNome.value} cadastrado com sucesso!`;
+    mensagem = `${inputNome.value} ${mensagem}`;
   }
 
   modalCadastro.classList.add('is-active');
@@ -52,3 +59,7 @@ deleteBtn.addEventListener('click', () => {
   mensagemCadastro.textContent = 'Usuário Cadastrado';
 });
 
+function validateEmail(email) {
+  const regex = /^[^\s@]{10,}@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
